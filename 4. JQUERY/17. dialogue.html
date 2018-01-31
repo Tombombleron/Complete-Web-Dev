@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Div & Span</title>
+        <style>
+            .bluebox {
+                background-color: #3A5795;
+                color: white;
+                height: 100px;
+                width: auto;
+            }
+            .yellowbox {
+                background-color: rgb(222, 224, 85);
+                height: auto;
+                width: auto;
+                padding: 10px;
+            }
+            .greenbox {
+                background-color: #31af37;
+                height: auto;
+                width: auto
+            }
+            .great {
+                background-color: #5a3479;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/dark-hive/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <div class="bluebox">
+            <p class="bluebox ui-corner-all" id="facebook">Facebook is great</p>
+        </div>
+        <div class="yellowbox ui-corner-all">
+            <p>Apple.</p>
+        </div>
+        <div class="greenbox ui-corner-all" id="microsoft">
+            <p>Microsoft.</p>
+            <p><a href="http://www.google.com" title="Google" id="googlelink">This is a link</a></p>
+        </div>
+        <div id="mydia" title="This is a dialogue">
+            <p>Welcome to the page</p>
+        </div>
+        <div id="confirmation" title="Leave the Page?">
+            <p><span class="ui-icon ui-icon-alert"><br></span>WE DON'T WANT YOU TO GO!</p>
+        </div>
+        <button id="open">Open Dialog</button>
+        <button id="prevPage">Go to the previous page</button>
+    </body>
+    <script>
+        $(function(){
+            $("#mydia").dialog({
+                autoOpen: false
+            });
+            $("#open").click(function(){
+                $("#mydia").dialog("open");
+            });
+            $("button").button();
+            $("#confirmation").dialog({
+                autoOpen: false,
+                modal: true,
+                buttons: {
+                    "Go To Previous Page" : function(){
+                        window.history.back();
+                    },
+                    Cancel: function(){
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            $("#prevPage").click(function(){
+               $("#confirmation").dialog("open");
+            });
+        });
+    </script>
+</html>

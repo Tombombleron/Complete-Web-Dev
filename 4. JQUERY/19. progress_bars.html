@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Div & Span</title>
+        <style>
+            .bluebox {
+                background-color: #3A5795;
+                color: white;
+                height: 100px;
+                width: auto;
+            }
+            .yellowbox {
+                background-color: rgb(222, 224, 85);
+                height: auto;
+                width: auto;
+                padding: 10px;
+            }
+            .greenbox {
+                background-color: #31af37;
+                height: auto;
+                width: auto
+            }
+            .great {
+                background-color: #5a3479;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <div class="bluebox">
+            <p class="bluebox ui-corner-all" id="facebook">Facebook is great</p>
+        </div>
+        <div class="yellowbox ui-corner-all">
+            <p>Apple.</p>
+        </div>
+        <div class="greenbox ui-corner-all" id="microsoft">
+            <p>Microsoft.</p>
+            <p><a href="http://www.google.com" title="Google" id="googlelink">This is a link</a></p>
+        </div>
+        <div id="progress">
+            <div id="label" style="text-align: center;line-height: 33px;">
+            
+            </div>
+        </div>
+        <button>Run</button>
+    </body>
+    <script>
+        $(function(){
+            $("#progress").progressbar({
+                value: 0
+            });
+            var x = 0;
+            $("button").click(function(){
+                $("#label").text("In Progress...");
+                setTimeout(function(){
+                    var progress = setInterval(function(){
+                        x++;
+                        $("#label").text(x+"%");
+                        $("#progress").progressbar("option","value",x);
+                        if(x>99){
+                            clearInterval(progress);
+                        }
+                    },100);
+                },1000)
+            });
+        });
+    </script>
+</html>
