@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ajax</title>
+        <style>
+            .bluebox {
+                background-color: #3A5795;
+                color: white;
+                height: 100px;
+                width: auto;
+            }
+            .yellowbox {
+                background-color: rgb(222, 224, 85);
+                height: 100px;
+                width: auto
+            }
+            .greenbox {
+                background-color: #31af37;
+                height: auto;
+                width: auto
+            }
+            .great {
+                background-color: #5a3479;
+            }
+            #droppable {
+                background-color: #521498;
+                height: 100px;
+                width: auto;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <div class="bluebox ui-corner-all" id="facebook">
+            <p>Facebook is not so <span class="great" id="greaet">great</span>.</p>
+        </div>
+        <div class="yellowbox ui-corner-all" id="apple">
+            <ul id="list">
+                <li>Cheese</li>
+                <li>Chicken</li>
+                <li>Cheese</li>
+                <li>Bologna</li>
+            </ul>
+        </div>
+        <div class="greenbox ui-corner-all" id="microsoft">
+            <p>Microsoft.</p>
+            <p><a href="http://www.google.com" title="Google" id="googlelink">This is a link</a></p>
+        </div>
+        <div id="droppable" class="ui-corner-all" style="margin-top: 20px;color: white">
+            <p>You can drop things here</p>
+        </div>
+    </body>
+    <script>
+        var msg = ["SOD OFF","LET GO","OI!","I'LL HAVE YOU","I'LL BASH YOU BRUV","U HAVIN A GO?"];
+        $(function(){
+            $("#facebook").draggable();
+            $("#apple").draggable({
+                axis:"y"
+            });
+            $("#microsoft").draggable({
+                revert: true,
+                start: function(){
+                    $("#facebook").css("background-color", "black");
+                },
+                drag: function(){
+                    $("#microsoft").css("background-color","rgb(" + Math.round(256*Math.random()) + "," + Math.round(256*Math.random()) + "," + Math.round(256*Math.random()) + ")");
+                    $("#microsoft").find("p").html(msg[Math.floor(6*Math.random())]);
+                },
+                stop: function(){
+                    $("#apple").css("background-color","blue");
+                    $("#microsoft").html("<p>GET OUTTA THE HOOD</p>");
+                }
+            });
+            $("#droppable").droppable({
+                drop: function(event, ui){
+                    $(this).css("background-color","#997813");
+                    $(this).find("p").remove();
+                    $("<div></div>").text(ui.draggable.text()).appendTo(this);
+                },
+                accept: "#list li"
+            });
+            $("#list").find("li").draggable({
+                helper: "clone",
+                appendTo: "p"
+            });
+        });
+    </script>
+</html>

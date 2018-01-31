@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ajax</title>
+        <style>
+            .bluebox {
+                background-color: #3A5795;
+                color: white;
+                height: 100px;
+                width: auto;
+            }
+            .yellowbox {
+                background-color: rgb(222, 224, 85);
+                height: 100px;
+                width: auto
+            }
+            .greenbox {
+                background-color: #31af37;
+                height: auto;
+                width: auto
+            }
+            .great {
+                background-color: #5a3479;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/dark-hive/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <div class="bluebox ui-corner-all" id="facebook">
+            <p>Facebook is not so <span class="great" id="greaet">great</span>.</p>
+        </div>
+        <div class="yellowbox ui-corner-all" id="apple">
+            <p>Apple.</p>
+        </div>
+        <div class="greenbox ui-corner-all" id="microsoft">
+            <p>Microsoft.</p>
+            <p><a href="http://www.google.com" title="Google" id="googlelink">This is a link</a></p>
+        </div>
+        <div class="ui-state-error" style="height: 100px;margin-top: 20px">
+            <p>ErrorMsg</p>
+        </div>
+    </body>
+    <script>
+        $(function(){
+            $("#facebook").draggable();
+        });
+    </script>
+</html>

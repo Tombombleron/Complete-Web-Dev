@@ -1,0 +1,24 @@
+<!DODTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>regular expressions</title>
+        <style>
+            #error {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="error"></p>
+        <script>
+            try {
+                sum(3,4);
+            }
+            catch(err) {
+//                'err' shows that you're catching an error
+                document.getElementById("error").innerHTML = err.message;
+            }
+        </script>
+    </body>
+</html>

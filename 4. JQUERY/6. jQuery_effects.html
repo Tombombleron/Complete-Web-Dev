@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jQUERY effects</title>
+        <style>
+            .bluebox {
+                background-color: #3A5795;
+                color: white;
+                height: 100px;
+                width: 300px;
+            }
+            .yellowbox {
+                background-color: rgb(222, 224, 85);
+                height: 100px;
+                width: auto
+            }
+            .greenbox {
+                background-color: #31af37;
+                height: auto;
+                width: auto
+            }
+            .great {
+                background-color: #5a3479;
+            }
+            p {
+                margin: 0;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <button id="FBfadeout">Fade Out Facebook</button>
+    <button id="FBfadein">Fade In Facebook</button>
+    <button id="FBfadetoggle">Fade Toggle Facebook</button>
+    <button id="animate">Animate</button>
+    <body>
+        <div class="bluebox" id="facebook">
+            <p>Facebook is not so <span class="great" id="greaet">great</span>.</p>
+        </div>
+        <div class="yellowbox" id="apple">
+            <p>Apple.</p>
+        </div>
+        <div class="greenbox" id="microsoft">
+            <p>Microsoft.</p>
+            <p><a href="http://www.google.com" title="Google" id="googlelink">This is a link</a></p>
+        </div>
+    </body>
+    <script>
+        $(function(){
+            $("#FBfadeout").click(function(){
+                $("#facebook").fadeOut(5000,function(){
+                    window.alert("Hi!");
+                });
+            });
+            $("#FBfadein").click(function(){
+                $("#facebook").fadeIn(5000);
+            });
+            $("#FBfadetoggle").click(function(){
+                $("#facebook").fadeToggle(1500);
+                $("#microsoft").fadeToggle(1500);
+                $("#apple").fadeToggle(1500);
+            });
+//            $("#animate").click(function(){
+//                $("#facebook").animate({width:"200px",height:"150px",opacity:"o.5"});
+//            });
+            $("#animate").click(function(){
+               $("#facebook").animate({width:"200px"},"slow");
+               $("#facebook").animate({height:"300px"},"slow");
+               $("#facebook").animate({height:"100px"},"slow");
+               $("#facebook").delay(3000).animate({width:"300px"},"slow");
+            });
+        });
+    </script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Div & Span</title>
+        <style>
+            .bluebox {
+                background-color: #3A5795;
+                color: white;
+                height: 100px;
+                width: 300px;
+            }
+            .yellowbox {
+                background-color: rgb(222, 224, 85);
+                height: 100px;
+                width: auto
+            }
+            .greenbox {
+                background-color: #31af37;
+                height: auto;
+                width: auto
+            }
+            .great {
+                background-color: #5a3479;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <button id="changeFB">Change Facebook</button>
+        <button id="changeAAPL">Change Apple</button>
+        <button id="changeMSFT">Change MSFT</button>
+        <button id="showMSFT">Show MSFT</button>
+        <button id="changeGr8">Change Great Span</button>
+        <div class="bluebox">
+            <p>Facebook is not so <span class="great" id="greaet">great</span>.</p>
+        </div>
+        <div class="yellowbox">
+            <p>Apple.</p>
+        </div>
+        <div class="greenbox" id="microsoft">
+            <p>Microsoft.</p>
+            <p><a href="http://www.google.com" title="Google" id="googlelink">This is a link</a></p>
+        </div>
+    </body>
+    <script>
+        $(function(){
+            $("#changeFB").click(function(){
+                $(".bluebox").css("width", 100*Math.random()-50+$(".bluebox").width());
+                $(".bluebox").addClass("greenbox");
+//                window.alert($(".bluebox").innerHeight());
+                window.alert($(".bluebox").outerHeight());
+            });
+            $("#changeAAPL").click(function(){
+                $(".yellowbox").css("position", "absolute");
+                $(".yellowbox").css({"top":Math.round(200*Math.random()), "left":Math.round(200*Math.random())});
+                $(".yellowbox").css("background-color", "rgb(" + Math.floor(256*Math.random()) + ", " + Math.floor(256*Math.random()) + ", " + Math.floor(256*Math.random()) + ")");
+            });
+            $("#changeMSFT").click(function(){
+               $("#microsoft").toggleClass("greenbox");
+            });
+            $("#microsoft").dblclick(function(){
+                $(this).hide();
+            });
+            $("#showMSFT").click(function(){
+                $("#microsoft").show();
+            });
+            $("#changeGr8").click(function(){
+                $("#greaet").wrap("<div></div>");
+            });
+        });
+    </script>
+</html>

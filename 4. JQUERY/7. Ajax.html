@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ajax</title>
+        <style>
+            .bluebox {
+                background-color: #3A5795;
+                color: white;
+                height: 100px;
+                width: 300px;
+            }
+            .yellowbox {
+                background-color: rgb(222, 224, 85);
+                height: 100px;
+                width: auto
+            }
+            .greenbox {
+                background-color: #31af37;
+                height: auto;
+                width: auto
+            }
+            .great {
+                background-color: #5a3479;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <button id="fbload">Load New FB Data</button>
+        <div class="bluebox" id="facebook">
+            <p>Facebook is not so <span class="great" id="greaet">great</span>.</p>
+        </div>
+        <div class="yellowbox" id="apple">
+            <p>Apple.</p>
+        </div>
+        <div class="greenbox" id="microsoft">
+            <p>Microsoft.</p>
+            <p><a href="http://www.google.com" title="Google" id="googlelink">This is a link</a></p>
+        </div>
+    </body>
+    <script>
+        $(function(){
+            $("#facebook").load("ajax/somedata.txt");
+            $("#apple").load("ajax/somedata.txt #para1");
+//            $("#fbload").click(function(){
+//                $.ajax({url:"ajax/somedata.txt", success:function(data){
+//                 $("#microsoft").html(data);
+//                }
+//                });
+//            });
+            $("#fbload").click(function(){
+                $.ajax({url:"ajax/somedata.txt"})done(function(data){
+                   $("microsoft").html(data);
+                });
+        });
+    </script>
+</html>

@@ -1,0 +1,32 @@
+<!DODTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>objects using constructors</title>
+    </head>
+    <body>
+        <p>Javascript</p>
+        <script>
+            function phone(make, model, warranty, color) {
+                this.make = make;
+                this.model = model;
+                this.warranty = warranty;
+                this.color = color;
+                this.extendWarranty = function (x) {
+                    this.warranty += x;
+                }
+            }
+            var myPhone = new phone("Samsung", "Tab S8", 12, "Space Grey");
+            window.console.log(myPhone);
+            myPhone.extendWarranty(12);
+            window.console.log(myPhone.warranty);
+            myPhone.condition = "Like New";
+            window.console.log(myPhone.condition);
+            var broPhone = new phone("Apple", "iPhone X", 0, "Filthy");
+            window.console.log(broPhone);
+            phone.prototype.condition = "New";
+            window.console.log(broPhone.condition);
+            
+        </script>
+    </body>
+</html>

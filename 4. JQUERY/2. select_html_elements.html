@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Select HTML elements using jQUERY</title>
+        <style>
+            .bluebox {
+                background-color: #3A5795;
+                color: white;
+                height: 100px;
+                width: auto;
+            }
+            .yellowbox {
+                background-color: rgb(222, 224, 85);
+                height: 100px;
+                width: auto
+            }
+            .greenbox {
+                background-color: #31af37;
+                height: 100px;
+                width: auto
+            }
+            .great {
+                background-color: #5a3479;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="bluebox">
+        <p>Facebook is not so <span class="great">great</span>.</p>
+        <p id="bluebox">Facebook</p>
+        <p>Paragraph 3</p>
+        </div>
+        <div class="yellowbox">
+        <p>Apple.</p>
+            <p><a href="http://www.google.com">Paragraph</a> 2 with link</p>
+        </div>
+            <ul>
+                <li>BMW</li>
+                <li>Volks</li>
+                <li>Audi</li>
+                <li>Dodge</li>
+            </ul>
+        <div class="greenbox">
+            <p>Microsoft.</p>
+            <table>
+                <tr><th>Header</th><th>Header1</th><th>Header1</th></tr>
+                <tr><td>Data</td><td>Data1</td><td>Data1</td></tr>
+                <tr><td>Data</td><td>Data1</td><td>Data1</td></tr>
+                <tr><td>Data</td><td>Data1</td><td>Data1</td></tr>
+                <tr><td>Data</td><td>Data1</td><td>Data1</td></tr>
+                <tr><td>Data</td><td>Data1</td><td>Data1</td></tr>
+                <tr><td>Data</td><td>Data1</td><td>Data1</td></tr>
+                <tr><td>Data</td><td>Data1</td><td>Data1</td></tr>
+            </table>
+            <p>Pls Type Your name:<input><button type="submit"></button></p>
+        </div>
+        <script>
+            $(function(){
+                $("*").css("font-size", '16px');
+//                $("*").css("text-align", 'center');
+                $("div > p").css("text-align", 'center');
+//                $("div p").css("text-align", 'center');
+//                $("div ~ p").css("text-align", 'center'); for siblings
+                $(".great").css("background-color","#e77373");
+                $("#bluebox").css("background-color","#73e7a5");
+                $("div.bluebox").css("font-family","sans-serif");
+                $("p:last-child").css("text-decoration","none");
+                $("[href]").css("color", "red");
+                $("li:first-child").css("background-color", "#12fb39");
+                $("tr:even").css("background-color", "#23afef");
+                $("tr:odd").css("background-color", "#86ee24");
+                $("table").css("text-align", "center");
+                $(":input").css("background-color", "#6424ee");
+                $(":Submit").css9("background-color", "#24bcee");
+                $("div:has(table)").css("background-color", "#ee24d3");
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DODTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>regular expressions</title>
+    </head>
+    <body>
+        <p>String: <span id="string"></span></p>
+        <p>Pattern: <span id="pattern"></span></p>
+        <p>Result(search): <span id="search"></span></p>
+        <p>Result(match): <span id="match"></span></p>
+        <p>Result(test): <span id="test"></span></p>
+        <script>
+            var str = "Seattle \n3567563";
+//            var pattern = /[a-z]/g; anything a-z
+//            var pattern = /[^atn]/g; not atn
+//            var pattern = /[4-7]/g; between 4 and 7
+//            var pattern = /\d/g; any digit
+//            var pattern = /\W/g; any upper case letter
+//            var pattern = /\s/g; spaces
+//            var pattern = /\d{3}/g; specific digit
+//            var pattern = /^S/g; s at first index
+//            var pattern = /^D/g; d at first index
+//            var pattern = /\n/g; newline
+            document.getElementById("string").innerHTML = str;
+            document.getElementById("pattern").innerHTML = pattern;
+            document.getElementById("search").innerHTML = str.search(pattern);
+            document.getElementById("match").innerHTML = str.match(pattern);
+            document.getElementById("test").innerHTML = pattern.test(str);
+        </script>
+    </body>
+</html>

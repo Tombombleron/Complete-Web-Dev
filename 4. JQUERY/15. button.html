@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Autocomplete</title>
+        <style>
+            .bluebox {
+                background-color: #3A5795;
+                color: white;
+                height: 100px;
+                width: auto;
+            }
+            .yellowbox {
+                background-color: rgb(222, 224, 85);
+                height: 100px;
+                width: auto
+            }
+            .greenbox {
+                background-color: #31af37;
+                height: auto;
+                width: auto
+            }
+            .great {
+                background-color: #5a3479;
+            }
+            #city {
+                width: 200px;
+            }
+            .ui-autocomplete {
+                max-height: 100px;
+                max-width: 200px;
+                overflow-y: auto;
+                overflow-x: auto;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/dark-hive/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <div class="bluebox">
+            <div id="checkboxes">
+                <input type="checkbox" id="checkbox1">
+                <label for="checkbox1">Dog</label>
+                <input type="checkbox" id="checkbox2">
+                <label for="checkbox2">Cat</label>
+                <input type="checkbox" id="checkbox3">
+                <label for="checkbox3">Parrot</label>                
+            </div>
+        </div>
+        <div class="yellowbox">
+            <input type="checkbox" id="checkbox">
+            <label for="checkbox">Checkbox</label>
+        </div>
+        <div class="greenbox" id="microsoft">
+            <form>
+                <div id="radioboxes">
+                    <input type="radio" id="radio1" name="radioboxes">
+                    <label for="radio1">Chicken</label>
+                    <input type="radio" id="radio2" name="radioboxes">
+                    <label for="radio2">Beef</label>
+                    <input type="radio" id="radio3" name="radioboxes">
+                    <label for="radio3">Children</label>
+                </div>
+            </form>
+        </div>
+        <button id="button1">Button1</button>
+        <button id="button2">Button2</button>
+        <button id="button3">Button3</button>
+    </body>
+    <script>
+        $(function(){
+            $("#button1").button();
+            $("#button2").button({
+                icons: {
+                    primary: "ui-icon-folder-open"
+                },
+                text: false
+            });
+            $("#button3").button({
+                icons: {
+                    primary: "ui-icon-mail-closed",
+                    secondary: "ui-icon-clock"
+                }
+            });
+            $("#checkbox").button();
+            $("#checkboxes").buttonset();
+            $("#radioboxes").buttonset();
+        });
+    </script>
+</html>

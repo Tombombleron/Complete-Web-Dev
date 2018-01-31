@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Div & Span</title>
+        <style>
+            .bluebox {
+                background-color: #3A5795;
+                color: white;
+                height: 100px;
+                width: auto;
+            }
+            .yellowbox {
+                background-color: rgb(222, 224, 85);
+                height: auto;
+                width: auto;
+                padding: 10px;
+            }
+            .greenbox {
+                background-color: #31af37;
+                height: auto;
+                width: auto;
+                padding: 10px;
+            }
+            .great {
+                background-color: #5a3479;
+            }
+            li {
+                font-size: 2em;
+                margin-bottom: 5px;
+                text-align: center;
+            }
+            #list .ui-selecting {
+                background: #740da0; 
+            }
+            #list .ui-selected {
+                background: #953ebb;
+                color: white;
+            }
+            .connectlist {
+                min-height: 20px;
+                border: 1px solid #ffffff;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <div class="bluebox">
+            <p>Facebook is not so <span class="great">great</span>.</p>
+        </div>
+        <div class="yellowbox">
+            <p>Apple.</p>
+            <ul id="list" class="connectlist">
+                <li class="ui-state-default">Audi</li>
+                <li class="ui-state-default">BMW</li>
+                <li class="ui-state-default notsortable">Merc</li>
+            </ul>
+        </div>
+        <div class="greenbox" id="microsoft">
+            <p>Microsoft.</p>
+            <p><a href="http://www.google.com" title="Google" id="googlelink">This is a link</a></p>
+            <ul id="list2" class="connectlist">
+                <li class="ui-state-default">Cheese</li>
+                <li class="ui-state-default">Chicken</li>
+                <li class="ui-state-default notsortable">Eggs</li>
+            </ul>
+        </div>
+    </body>
+    <script>
+        $(function(){
+            $("#list").sortable({
+                placeholder: "ui-state-error",
+//                cancel: ".notsortable"
+            });
+            $("#list2").sortable();
+            $("#list, #list2").sortable({
+                connectWith: ".connectlist"
+            });
+        });
+    </script>
+</html>

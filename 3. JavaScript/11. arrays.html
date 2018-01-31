@@ -1,0 +1,32 @@
+<!DODTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>objects using constructors</title>
+    </head>
+    <body>
+        <p id="firstpara">Javascript</p>
+        <script>
+//            var chopinList = ["bread", "cheese", "chicken", "massive knives"];
+            var chopinList = new Array("bread", "cheese", "chicken", "massive knives");
+            showResult(chopinList);
+            showResult(chopinList[2]);
+            function showResult(x) {
+                document.getElementById("firstpara").innerHTML += "<br>" + x;
+            }
+            chopinList[1] = "paprika";
+            showResult(chopinList);
+            delete chopinList[1];
+            showResult(chopinList);
+            chopinList.splice(1,1);
+            showResult(chopinList);
+            chopinList.splice(1,0, "banana", "cheese");
+            showResult(chopinList);
+            chopinList.sort();
+            showResult(chopinList);
+            var myStr = "Today is a Friday and I'm looking forward to the weekend";
+            var myArray = myStr.split(" ",3);
+            showResult(myArray);
+        </script>
+    </body>
+</html>
