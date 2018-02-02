@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Div & Span</title>
+        <style>
+            .bluebox {
+                background-color: #3A5795;
+                color: white;
+                height: 100px;
+                width: auto;
+            }
+            .yellowbox {
+                background-color: rgb(222, 224, 85);
+                height: auto;
+                width: auto;
+                padding: 10px;
+            }
+            .greenbox {
+                background-color: #31af37;
+                height: auto;
+                width: auto
+            }
+            .great {
+                background-color: #5a3479;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <div class="bluebox ui-corner-all" id="facebook">
+            <p>
+                <label for="myinput"> Enter a value:</label>
+                <input id="myinput" name="myinput" value="30" title="Please Enter a Value">
+            </p>
+        </div>
+        <br>
+        <div class="yellowbox ui-corner-all" id="apple">
+            <ul>
+                <li><a href="tab1">tab1</a></li>
+                <li><a href="tab2">tab2</a></li>
+                <li><a href="tab3">tab3</a></li>
+            </ul>
+            <div id="tab1"><p>Content1</p></div>
+            <div id="tab2"><p>Content2</p></div>
+            <div id="tab3"><p>Content3</p></div>
+        </div>
+        <div class="greenbox ui-corner-all" id="microsoft">
+            <p>Microsoft.</p>
+            <p><a href="http://www.google.com" title="Google" id="googlelink">This is a link</a></p>
+        </div>
+    </body>
+    <script>
+        $(function(){
+            $("#myinput").spinner({
+                min: 0,
+                max: 100,
+                step: 10
+            });
+            $("#apple").tabs({
+                collapsible: true,
+                event: "mouseover"
+            });
+            $("#apple").tabs().find(".ui-tabs-nav").sortable({
+                axis: "x"
+            });
+            $(document).tooltip();
+//            $("#myinput").tooltip({
+//                show: {effect: "slideDown"}
+//            });
+        });
+    </script>
+</html>
